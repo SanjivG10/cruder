@@ -4,9 +4,16 @@ from .error import generate_error_string
 
 
 def validate_user_input(data):
-
+    name = data.get("name")
+    port= data.get("port")
     output_folder = data.get("output")
     entry = data.get("entry")
+
+    if not isinstance(port, int):
+        raise Exception("port number is not a number")
+
+    if not name.isalnum():
+        raise Exception("Bad project name. Make sure it is alphanumeric")
 
     output_folder_check = output_folder.isalnum()
     if not output_folder_check:

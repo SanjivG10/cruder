@@ -1,7 +1,13 @@
 {
-    "name": "mloverflow",
+    "name": "cruder",
     "framework": "express",
     "database": "mongo",
     "orm": "mongoose",
-    "output": "build"
+    "output": "build",
+    "entry": "src",
+    "language": "js",
+    "module": "es5",
+    "env": ".env",
+    "db_url": "mongodb://localhost:27017/cruder",
+    "port": 8000
 }

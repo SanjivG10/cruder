@@ -2,5 +2,6 @@ SUPPORTS = {
     "database": ["mongo"],
     "framework": ["express"],
     "orm": ["mongoose"],
-    "language": ["js"]
+    "language": ["js"],
+    "module":["es5"]
 }

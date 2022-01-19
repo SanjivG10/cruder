@@ -11,4 +11,9 @@ def create_folder(folder_name):
         raise Exception(f"Folder name `{folder_name}` exists. Can you please delete it or rename output folder name?")
 
 
+def create_file(filename):
+    with open(filename,"w") as f:
+        pass 
+
+
 
