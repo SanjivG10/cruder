@@ -1,0 +1,7 @@
+{
+    "name": "mloverflow",
+    "framework": "express",
+    "database": "mongo",
+    "orm": "mongoose",
+    "output": "build"
+}
