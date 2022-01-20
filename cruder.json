@@ -9,5 +9,41 @@
     "module": "es5",
     "env": ".env",
     "db_url": "mongodb://localhost:27017/cruder",
-    "port": 8000
+    "port": 8000,
+    "entry_file": "index",
+    "route_folder": "routes",
+    "schema_folder": "schemas",
+    "schemas": [
+        {
+            "account": [
+                {
+                    "name": "password",
+                    "type": "String"
+                },
+                {
+                    "name": "login",
+                    "type": "String",
+                    "additional": {
+                        "unique": true
+                    }
+                }
+            ]
+        },
+        {
+            "token": [
+                {
+                    "name": "date",
+                    "type": "Date"
+                }
+            ]
+        }
+    ],
+    "routes": [
+        {
+            "path": "/account",
+            "auth": false,
+            "crud": "all",
+            "schema": "account"
+        }
+    ]
 }

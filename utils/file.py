@@ -1,4 +1,5 @@
 import os
+from templates.generator import imports
 
 def file_exists(filename):
     return os.path.exists(filename)
@@ -12,7 +13,7 @@ def create_folder(folder_name):
 
 
 def create_file(filename):
-    with open(filename,"w") as f:
+    with open(filename,"w"):
         pass 
 
 

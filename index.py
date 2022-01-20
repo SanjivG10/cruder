@@ -1,13 +1,18 @@
-import json 
-from utils.file import file_exists,create_folder,create_file
+import json
+from templates.generator.schemas import create_schemas
+from templates.generator.routes import create_routes
+from utils.file import file_exists,create_folder
 from utils.validation import validate_user_input
 from utils.json import sanitize_data
 import os 
 from templates.env import create_env_str
+from utils.constants import DEPENDENCIES 
+from templates.entry import create_entry_file
+
 
 FILE_NAME = "cruder.json"
 
-def read_json():
+def create_crud():
     if not file_exists(FILE_NAME):
         raise Exception(f"{FILE_NAME} file not found")
     
@@ -17,26 +22,46 @@ def read_json():
 
         validate_user_input(data)
 
-        output = data.get("output")
+        output = data.get("output")  #/build 
         create_folder(output)
+        os.chdir(output)
 
-        # create .env file
+
         env_file = data.get("env")
-        with open(output+"/"+".env","w") as f:
+        with open(env_file,"w") as f:
             db_url = data.get("db_url")
             port = data.get("port")
             env_str = create_env_str(db_url,port)
             f.write(env_str)
 
         entry_file = data.get("entry_file")
-        entry_file_name  = os.path.join(output,entry_file)+".js"
+        create_entry_file(entry_file,data,dependencies=DEPENDENCIES) 
 
         entry = data.get("entry")
-        entry_folder = os.path.join(output,entry)
-        create_folder(entry_folder)
+        create_folder(entry)
 
-        create_file(entry_file_name)
+        os.chdir(entry)
+
+        route_folder = data.get("route_folder")
+        create_folder(route_folder)
+
+        schema_folder = data.get("schema_folder")
+        create_folder(schema_folder)
+        os.chdir(schema_folder)
+        create_schemas(data.get("schemas"))
+        
+        os.chdir(".."+"/"+route_folder)
+        create_routes(data)
 
 
-read_json()
+
+
+
+
+        # create .env file
+        # todo  => Create env file content from json file instead of this. 
+
+
+
+create_crud()
 
