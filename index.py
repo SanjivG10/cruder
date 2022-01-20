@@ -53,14 +53,20 @@ def create_crud():
         os.chdir(".."+"/"+route_folder)
         create_routes(data)
 
+        # lets create package.json folder
+        os.chdir("../../")
+        os.system(f"npm init -y")
 
+        package = {}
+        with open("package.json","r") as f:
+            package = json.load(f)
+            package["name"] = data.get("name")
+            package["main"] = data.get("entry_file")+".js"
+        
+        with open("package.json","w") as f:
+            json.dump(package,f)
 
-
-
-
-        # create .env file
-        # todo  => Create env file content from json file instead of this. 
-
+        os.system(f"npm install {' '.join(DEPENDENCIES)}")
 
 
 create_crud()

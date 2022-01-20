@@ -1,4 +1,5 @@
 def sanitize_data(data):
+
     name = data.get("name","app")
     port= data.get("port",8000)
     framework = data.get("framework","express")
@@ -13,7 +14,8 @@ def sanitize_data(data):
     db_url= data.get("db_url",f"mongodb://localhost:27017/{name}")
     route_folder = data.get("route_folder","routes")
     schema_folder= data.get("schema_folder","schemas")
-    schemas = data.get("schemas",[])
+    schemas = data.get("schemas",[]) 
+
 
     sanitized_data = {
         **data,
@@ -29,7 +31,8 @@ def sanitize_data(data):
         "db_url": db_url,
         "route_folder": route_folder,
         "schema_folder":schema_folder,
-        "schemas": schemas
+        "schemas": schemas,
+        "port":port
     }
 
     return  sanitized_data

@@ -5,7 +5,7 @@ from .error import generate_error_string
 
 def validate_route_to_schema(schema,schemas):
     for sch in schemas:
-        for k,v in sch.items():
+        for k,_ in sch.items():
             if k==schema:
                 return True 
     return False 
@@ -19,13 +19,13 @@ def validate_user_input(data):
     auth = data.get("auth",False)
 
     if auth: 
-        raise Exception("middleware is not supported currently")
+        raise Exception("auth is not supported currently")
 
     schemas = data.get("schemas",[])
     routes = data.get("routes",[])
 
+
     for route in routes:
-        
         if not all([validate_route_to_schema(route.get("schema"),schemas)  for route in routes]):
             raise Exception(f"{route.get('path')} doesn't match schema")
 

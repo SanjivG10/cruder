@@ -31,7 +31,7 @@ def generate_post_route(schema,auth=False):
         schema_name = name
         field_names = [schema_prop.get("name") for schema_prop in schema_props]
 
-    code=f"""\nrouter.post("/",[{'auth' if auth else ""}],async((req,res)=>{{
+    code=f"""\nrouter.post("/",[{'auth' if auth else ""}],async(req,res)=>{{
         try {{
             const {{ {' ,'.join(field_names)} }} = req.body;  // this is for future usages 
             const {schema_name} = new model(req.body);
@@ -45,7 +45,7 @@ def generate_post_route(schema,auth=False):
             }})
             
         }}
-    }}))\n\n\n
+    }})\n\n\n
     """
 
     return code 

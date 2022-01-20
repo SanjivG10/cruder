@@ -6,7 +6,7 @@ SUPPORTS = {
     "module":["es5"]
 }
 
-DEPENDENCIES = ["express","mongoose","body-parser"]
+DEPENDENCIES = ["express","mongoose","body-parser","dotenv"]
 
 ALL_ROUTES = ["GET","POST","DELETE","PUT"]
 

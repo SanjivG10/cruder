@@ -4,11 +4,8 @@ from utils.constants import ALL_ROUTES
 
 def create_routes(data,ext=".js"):
 
-    # generate index file 
-
     routes = data.get("routes")
     for route in routes:
-        path = route.get("path")
         auth = route.get("auth",False)
         crud = route.get("crud",ALL_ROUTES)
         schema = route.get("schema")

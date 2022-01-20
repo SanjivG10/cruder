@@ -17,9 +17,9 @@ def create_entry_file(filename,data,ext=".js",dependencies=[]):
     code+=f"\nconst {route_variable_name} = require('./{route_path}');"
     code+="\nconst app = express();"
     code+="\napp.use(bodyParser.json());"
-    code+=f"\n\napp.use('/',{route_variable_name})"
-    code+=f"\nconst port = process.env.PORT || {port}"
-    code+= get_database_string()
+    code+=f"\n\napp.use('/',{route_variable_name});"
+    code+=f"\nconst port = process.env.PORT || {port};"
+    code+= get_database_string(data.get("db_url"))
     code+= f"""\n\napp.listen(port, () => {{ 
         console.log('App listening at http://localhost:{port}')
 }})
