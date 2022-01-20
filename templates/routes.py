@@ -34,7 +34,7 @@ def generate_post_route(schema,auth=False):
     code=f"""\nrouter.post("/",[{'auth' if auth else ""}],async(req,res)=>{{
         try {{
             const {{ {' ,'.join(field_names)} }} = req.body;  // this is for future usages 
-            const {schema_name} = new model(req.body);
+            const {schema_name}Model = new model(req.body);
             const new{schema_name.title()} = await {schema_name}.save();
 
             return res.send({{data: new{schema_name.title()}}}); 

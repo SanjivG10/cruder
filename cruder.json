@@ -17,20 +17,25 @@
         {
             "account": [
                 {
-                    "name": "password",
+                    "name": "username",
                     "type": "String"
                 },
                 {
-                    "name": "login",
+                    "name": "password",
                     "type": "String",
                     "additional": {
-                        "unique": true
+                        "unique": true,
+                        "trim": true
                     }
                 }
             ]
         },
         {
             "token": [
+                {
+                    "name": "token",
+                    "type": "String"
+                },
                 {
                     "name": "date",
                     "type": "Date"
@@ -44,6 +49,16 @@
             "auth": false,
             "crud": "all",
             "schema": "account"
+        },
+        {
+            "path": "/token",
+            "auth": false,
+            "crud": [
+                "GET",
+                "DELETE"
+            ],
+            "schema": "token"
         }
-    ]
+    ],
+    "install": false
 }

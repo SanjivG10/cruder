@@ -27,7 +27,7 @@ def validate_user_input(data):
 
     for route in routes:
         if not all([validate_route_to_schema(route.get("schema"),schemas)  for route in routes]):
-            raise Exception(f"{route.get('path')} doesn't match schema")
+            raise Exception(f"One of your route doesn't match schema")
 
 
     if not isinstance(port, int):

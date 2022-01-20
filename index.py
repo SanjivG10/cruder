@@ -15,10 +15,13 @@ FILE_NAME = "cruder.json"
 def create_crud():
     if not file_exists(FILE_NAME):
         raise Exception(f"{FILE_NAME} file not found")
+
     
     with open(FILE_NAME,"r") as f:
         data = json.load(f)
         data = sanitize_data(data) 
+
+        ext ="."+ data.get("language")
 
         validate_user_input(data)
 
@@ -54,6 +57,7 @@ def create_crud():
         create_routes(data)
 
         # lets create package.json folder
+
         os.chdir("../../")
         os.system(f"npm init -y")
 
@@ -61,12 +65,13 @@ def create_crud():
         with open("package.json","r") as f:
             package = json.load(f)
             package["name"] = data.get("name")
-            package["main"] = data.get("entry_file")+".js"
+            package["main"] = data.get("entry_file")+ext
         
         with open("package.json","w") as f:
             json.dump(package,f)
 
-        os.system(f"npm install {' '.join(DEPENDENCIES)}")
+        if data.get("install"):
+            os.system(f"npm install {' '.join(DEPENDENCIES)}")
 
 
 create_crud()
