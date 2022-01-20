@@ -17,7 +17,6 @@ def sanitize_data(data):
     schemas = data.get("schemas",[]) 
     install = data.get("install",True) 
 
-
     sanitized_data = {
         **data,
         "framework":framework,
