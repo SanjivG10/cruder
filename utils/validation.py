@@ -16,6 +16,10 @@ def validate_user_input(data):
     port= data.get("port")
     output_folder = data.get("output")
     entry = data.get("entry")
+    auth = data.get("auth",False)
+
+    if auth: 
+        raise Exception("middleware is not supported currently")
 
     schemas = data.get("schemas",[])
     routes = data.get("routes",[])
