@@ -20,7 +20,7 @@
 
 # Features 
 
-1.  🔴 Supports CRUD with mongo database (mongoose), express router and es5 syntax 
+1.  🔴 Supports CRUD with mongo database (mongoose), express router and es6 syntax 
 2.  🔴 Folder structure options with installation of dependencies.  
 3.  🔴 Easy to understand code.
 4.  🔴 No use of external libraries (might need some on future enhancements)
@@ -32,6 +32,7 @@
 # TODO
 - Create curder.json with required [options](#options)
 - > python3 index.py 
+- > node --es-module-specifier-resolution=node build/index.js  # need this option to make sure importing could be done withour babel
 
 
 # Options
@@ -54,7 +55,7 @@
 
     "language": "js" (supported right now)
 
-    "module": "es5" (supported right now) 
+    "module": "es6" (supported right now) 
 
     "env": env file name 
 

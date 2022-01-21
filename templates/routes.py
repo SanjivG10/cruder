@@ -6,13 +6,14 @@ def generate_route_header(route,data):
     schema_folder = data.get("schema_folder")
     schema = route.get("schema")
 
-    code="const router = require('express').Router()\n"
-    code+= f"const model = require('./../{schema_folder}/{schema}')\n \n"
+    code="import express from 'express';\n"
+    code += "const router = express.Router();\n"
+    code+= f"import model from './../{schema_folder}/{schema}';\n \n"
 
     return code
 
 def generate_route_footer(name):
-    code = f"\nmodule.exports={name}"
+    code = f"\n export default {name}"
     return code
 
 def generate_get_route(auth=False):
@@ -111,16 +112,17 @@ def generate_delete_route(auth=False):
 
 def generate_index_route(routes):
 
-    code = "const router = require('express').Router();\n\n"
+    code = "import express from 'express';\n"
+    code += "const router =  express.Router();\n"
     for route in routes:
         name= route.get("schema")
-        code+=f"const {name} = require('./{name}')\n"
+        code+=f"import {name} from './{name}';\n"
 
     code +="\n"*3
     for route in routes:
         code+=f"router.use('{route.get('path')}',{route.get('schema')})\n"
 
-    code+="\n\nmodule.exports = router"
+    code+= generate_route_footer("router")
 
     return code 
      

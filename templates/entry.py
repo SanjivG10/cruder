@@ -11,10 +11,11 @@ def create_entry_file(filename,data,ext=".js",dependencies=[]):
     file_name = filename + ext
     code +=import_string
 
-    code+="\nrequire('dotenv').config();\n\n"
+    code+="\nimport dotenv from 'dotenv';\n"
+    code+="dotenv.config()\n"
 
     route_variable_name = "api"
-    code+=f"\nconst {route_variable_name} = require('./{route_path}');"
+    code+=f"\nimport {route_variable_name} from './{route_path}';"
     code+="\nconst app = express();"
     code+="\napp.use(bodyParser.json());"
     code+=f"\n\napp.use('/',{route_variable_name});"

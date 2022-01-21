@@ -66,12 +66,24 @@ def create_crud():
             package = json.load(f)
             package["name"] = data.get("name")
             package["main"] = data.get("entry_file")+ext
+            package["type"] = "module"
         
         with open("package.json","w") as f:
             json.dump(package,f)
 
         if data.get("install"):
             os.system(f"npm install {' '.join(DEPENDENCIES)}")
+            # os.system(f"npm install --save-dev {' '.join(DEV_DEPENDENCIES)}")
+
+            # with open("babel.config.json","w") as f:
+            #     babel_config = {
+            #         "presets": ["@babel/preset-env"],
+            #         "plugins": ["@babel/plugin-proposal-class-properties"]
+            #     }
+
+            #     json.dump(babel_config,f)
+
+                
 
 
 create_crud()

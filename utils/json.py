@@ -9,13 +9,14 @@ def sanitize_data(data):
     orm = data.get("orm","mongoose")
     language = data.get("language","js")
     entry_file = data.get("entry_file","index")
-    module = data.get("module","es5")
+    module = data.get("module","es6")
     env= data.get("env",".env")
     db_url= data.get("db_url",f"mongodb://localhost:27017/{name}")
     route_folder = data.get("route_folder","routes")
     schema_folder= data.get("schema_folder","schemas")
     schemas = data.get("schemas",[]) 
     install = data.get("install",True) 
+    ext = data.get("ext",".js") 
 
     sanitized_data = {
         **data,
@@ -33,7 +34,8 @@ def sanitize_data(data):
         "schema_folder":schema_folder,
         "schemas": schemas,
         "port":port,
-        "install": install
+        "install": install,
+        "ext":ext
     }
 
     return  sanitized_data

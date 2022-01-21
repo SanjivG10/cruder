@@ -7,7 +7,7 @@
     "output": "build",
     "entry": "src",
     "language": "js",
-    "module": "es5",
+    "module": "es6",
     "env": ".env",
     "db_url": "mongodb://localhost:27017/cruder",
     "port": 8000,

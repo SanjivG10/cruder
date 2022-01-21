@@ -3,7 +3,7 @@ SUPPORTS = {
     "framework": ["express"],
     "orm": ["mongoose"],
     "language": ["js"],
-    "module":["es5"]
+    "module":["es6"]
 }
 
 DEPENDENCIES = ["express","mongoose","body-parser","dotenv"]
