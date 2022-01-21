@@ -16,6 +16,7 @@
  - ❗ Python (I mean you are running python app)
  - ❗ NodeJS (inorder to run the generated application)
  - ❗ MongoDB (create mongodb and database name)
+ - ❗ NPM (Install npm packages)
 
 # Features 
 
