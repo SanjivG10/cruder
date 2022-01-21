@@ -32,7 +32,7 @@
 # TODO
 - Create curder.json with required [options](#options)
 - > python3 index.py 
-- > node --es-module-specifier-resolution=node build/index.js  # need this option to make sure importing could be done withour babel
+- > node --es-module-specifier-resolution=node build/index.js  # need this option to make sure importing could be done without babel
 
 
 # Options
