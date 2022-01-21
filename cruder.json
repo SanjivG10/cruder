@@ -1,5 +1,6 @@
 {
     "name": "cruder",
+    "install": true,
     "framework": "express",
     "database": "mongo",
     "orm": "mongoose",
@@ -59,6 +60,5 @@
             ],
             "schema": "token"
         }
-    ],
-    "install": false
+    ]
 }

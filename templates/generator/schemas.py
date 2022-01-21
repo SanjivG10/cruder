@@ -1,4 +1,4 @@
-from templates.schemas import generate_schemas_header, get_schema_string
+from templates.schemas import generate_schemas_footer, generate_schemas_header, get_schema_string
 
 
 
@@ -13,7 +13,7 @@ def create_schemas(allSchemas,ext=".js"):
 
                 schema_model_name = f"{key}Model"
                 code+=f"\n\nconst {schema_model_name} = mongoose.model('{key}',{schema_var_name})"
-                code+=f"\nmodule.exports = {schema_model_name}"
+                code+= generate_schemas_footer(schema_model_name); 
 
                 f.write(code)
 

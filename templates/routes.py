@@ -1,4 +1,6 @@
 
+
+
 def generate_route_header(route,data):
 
     schema_folder = data.get("schema_folder")
@@ -7,6 +9,10 @@ def generate_route_header(route,data):
     code="const router = require('express').Router()\n"
     code+= f"const model = require('./../{schema_folder}/{schema}')\n \n"
 
+    return code
+
+def generate_route_footer(name):
+    code = f"\nmodule.exports={name}"
     return code
 
 def generate_get_route(auth=False):

@@ -1,5 +1,5 @@
 
-from templates.routes import generate_delete_route, generate_get_route, generate_index_route, generate_post_route, generate_put_route, generate_route_header
+from templates.routes import generate_delete_route, generate_get_route, generate_index_route, generate_post_route, generate_put_route, generate_route_footer, generate_route_header
 from utils.constants import ALL_ROUTES
 
 def create_routes(data,ext=".js"):
@@ -34,8 +34,7 @@ def create_routes(data,ext=".js"):
                 code+=generate_put_route(required_schema,auth)
 
         
-
-        code+="module.exports = router"
+        code+=generate_route_footer("router")
 
         with open(schema+ext,"w") as f:
             f.write(code) 

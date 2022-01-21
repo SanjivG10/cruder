@@ -2,9 +2,13 @@
 from utils.lib import get_js_var_dict
 
 
-def generate_schemas_header(orm="mongoose"):
+def generate_schemas_header(orm="mongoose",module="es5"):
     code= f"const {orm} = require('{orm}');"
     code+=f"\nconst {{Schema}} = mongoose;\n\n"; 
+    return code 
+
+def generate_schemas_footer(name,module="es5"):
+    code=f"\nmodule.exports = {name}"
     return code 
 
 
