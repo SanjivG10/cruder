@@ -9,7 +9,7 @@
 # Introduction 
 🔥CRUDer🔥 is a simple application written in Python that generates simple CRUD (Create, Read, Update, Delete) routes for NodeJS. 
 
-                    ### 🔴 PR's are absolutely welcome. 
+                      💲 PR's are absolutely welcome 💲
 
 
 # Pre-Requisite 
@@ -19,13 +19,13 @@
 
 # Features 
 
-1  🔴 Supports CRUD with mongo database (mongoose), express router and es5 syntax 
-2  🔴 Folder structure options with installation of dependencies.  
-3  🔴 Easy to understand code.
-4  🔴 No use of external libraries (might need some on future enhancements)
-5  🔴 Easy to run 
-6  🔴 Settings are passed through .json file. 
-7  🔴 Manchester United 
+1.  🔴 Supports CRUD with mongo database (mongoose), express router and es5 syntax 
+2.  🔴 Folder structure options with installation of dependencies.  
+3.  🔴 Easy to understand code.
+4.  🔴 No use of external libraries (might need some on future enhancements)
+5.  🔴 Easy to run 
+6.  🔴 Settings are passed through .json file. 
+7.  🔴 Manchester United 
 
 
 # TODO
@@ -85,9 +85,7 @@
                         "trim": true
                     }
                 }
-              
-            ]
-        }]
+            ]}]
 
     "routes": route information [<field>:<field>]
         field: {
@@ -97,23 +95,21 @@
             "schema": which schema to use from above settings. 
         }
 
-        ⚠️ eg: "routes": [
-        {
+        ⚠️ eg: "routes": [{
+            
             "path": "/account",
-            "auth": false,
             "crud": "all",
-            "schema": "account"
-        },
-        {
+            "schema": "account
+            },
+            {
+    
             "path": "/token",
-            "auth": false,
             "crud": [
                 "GET",
                 "DELETE"
             ],
             "schema": "token"
-        }
-    ]
+            }]
 
     
     
